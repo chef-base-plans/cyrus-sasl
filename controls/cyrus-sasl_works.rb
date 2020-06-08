@@ -7,7 +7,10 @@ control 'core-plans-cyrus-sasl-works' do
   impact 1.0
   title 'Ensure cyrus-sasl works as expected'
   desc '
+  Verify cyrus-sasl by ensuring (1) its installation directory exists and (2) that
+  it returns the expected version
   '
+  
   plan_installation_directory = command("hab pkg path #{plan_origin}/#{plan_name}")
   describe plan_installation_directory do
     its('exit_status') { should eq 0 }
